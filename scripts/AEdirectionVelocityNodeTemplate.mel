@@ -1,0 +1,35 @@
+//
+//  Procedure Name:
+//  AEdirectionVelocityNodeTemplate
+//
+//  Description Name:
+//  Creates the attribute editor controls for the direction velocity node
+//
+//  Author:
+//  David De Juan
+//
+
+global proc AEdirectionVelocityNodeTemplate( string $nodeName )
+{
+    // START TEMPLATE
+    editorTemplate -beginScrollLayout;
+
+    // MAIN ATTRIBUTES
+    editorTemplate -beginLayout "Direction Velocity" -collapse 0;
+        editorTemplate -addControl "subframes";
+        editorTemplate -addControl "reverseDirection";
+        editorTemplate -addControl "direction";
+        editorTemplate -addControl "velocity";
+        editorTemplate -addControl "acceleration";
+    editorTemplate -endLayout;
+
+    AEdependNodeTemplate $nodeName;
+    
+    // SUPPRESS ATTRIBUTES
+    editorTemplate -suppress "inputMesh";
+     
+    editorTemplate -addExtraControls;
+
+    // END
+    editorTemplate -endScrollLayout;
+}
